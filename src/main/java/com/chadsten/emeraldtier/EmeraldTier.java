@@ -34,11 +34,10 @@ public class EmeraldTier implements ModInitializer {
 
     public static final HorseArmorItem EMERALD_HORSE_ARMOR = new HorseArmorItem(13, "emerald", new FabricItemSettings().maxCount(1).group(ItemGroup.MISC));
 
-    // adds emerald tier horse armor to the same loot tables as diamond horse armor
     public static final LootTableItem[] LOOT_TABLE = {
-            new LootTableItem(LootTables.SIMPLE_DUNGEON_CHEST, 4),
+            new LootTableItem(LootTables.SIMPLE_DUNGEON_CHEST, 2),
             new LootTableItem(LootTables.ANCIENT_CITY_CHEST, 1),
-            new LootTableItem(LootTables.DESERT_PYRAMID_CHEST, 4),
+            new LootTableItem(LootTables.DESERT_PYRAMID_CHEST, 3),
             new LootTableItem(LootTables.END_CITY_TREASURE_CHEST, 1),
             new LootTableItem(LootTables.JUNGLE_TEMPLE_CHEST, 1),
             new LootTableItem(LootTables.NETHER_BRIDGE_CHEST, 2),
@@ -67,17 +66,17 @@ public class EmeraldTier implements ModInitializer {
         // However, some things (like resources) may still be uninitialized.
         // Proceed with mild caution.
 
-        LOGGER.info("Emerald Tier initializing.");
+        LOGGER.info("[Emerald Tier] Initialization started.");
 
-        LOGGER.info("Emerald Tier item registration starting.");
+        LOGGER.info("[Emerald Tier] Item registration starting.");
         registerItems();
-        LOGGER.info("Emerald Tier item registration complete.");
+        LOGGER.info("[Emerald Tier] Item registration complete.");
 
-        LOGGER.info("Emerald Tier loot table modification starting.");
+        LOGGER.info("[Emerald Tier] Loot table modification starting.");
         buildLootTables();
-        LOGGER.info("Emerald Tier loot table modification complete.");
+        LOGGER.info("[Emerald Tier] Loot table modification complete.");
 
-        LOGGER.info("Emerald Tier initialized successfully.");
+        LOGGER.info("[Emerald Tier] Initialization completed.");
     }
 
     private void registerItems() {
