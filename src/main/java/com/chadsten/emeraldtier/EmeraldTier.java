@@ -3,8 +3,13 @@ package com.chadsten.emeraldtier;
 import com.chadsten.emeraldtier.item.*;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
+import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
+import net.minecraft.block.Blocks;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.*;
+import net.minecraft.loot.LootPool;
+import net.minecraft.loot.LootTables;
+import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import org.slf4j.Logger;
@@ -29,17 +34,50 @@ public class EmeraldTier implements ModInitializer {
 
     public static final HorseArmorItem EMERALD_HORSE_ARMOR = new HorseArmorItem(13, "emerald", new FabricItemSettings().maxCount(1).group(ItemGroup.MISC));
 
+    // adds emerald tier horse armor to the same loot tables as diamond horse armor
+    public static final LootTableItem[] LOOT_TABLE = {
+            new LootTableItem(LootTables.SIMPLE_DUNGEON_CHEST, 4),
+            new LootTableItem(LootTables.ANCIENT_CITY_CHEST, 1),
+            new LootTableItem(LootTables.DESERT_PYRAMID_CHEST, 4),
+            new LootTableItem(LootTables.END_CITY_TREASURE_CHEST, 1),
+            new LootTableItem(LootTables.JUNGLE_TEMPLE_CHEST, 1),
+            new LootTableItem(LootTables.NETHER_BRIDGE_CHEST, 2),
+            new LootTableItem(LootTables.STRONGHOLD_CORRIDOR_CHEST, 1)
+            // village weaponsmith's chests are excluded to provide balance via increased rarity
+    };
+
+    public static void buildLootTables() {
+        for (LootTableItem LOOT_ENTRY: LOOT_TABLE) {
+
+            LootTableEvents.MODIFY.register((resourceManager, lootManager, id, tableBuilder, source) -> {
+                if (source.isBuiltin() && LOOT_ENTRY.id.equals(id)) {
+
+                    LootPool.Builder poolBuilder = LootPool.builder()
+                            .with(ItemEntry.builder(EmeraldTier.EMERALD_HORSE_ARMOR).weight(LOOT_ENTRY.weight));
+
+                    tableBuilder.pool(poolBuilder);
+                }
+            });
+        }
+    }
+
     @Override
     public void onInitialize() {
         // This code runs as soon as Minecraft is in a mod-load-ready state.
         // However, some things (like resources) may still be uninitialized.
         // Proceed with mild caution.
 
-        LOGGER.info("Emerald Tier Initializing.");
+        LOGGER.info("Emerald Tier initializing.");
 
+        LOGGER.info("Emerald Tier item registration starting.");
         registerItems();
+        LOGGER.info("Emerald Tier item registration complete.");
 
-        LOGGER.info("Emerald Tier Initialized!");
+        LOGGER.info("Emerald Tier loot table modification starting.");
+        buildLootTables();
+        LOGGER.info("Emerald Tier loot table modification complete.");
+
+        LOGGER.info("Emerald Tier initialized successfully.");
     }
 
     private void registerItems() {
@@ -54,5 +92,13 @@ public class EmeraldTier implements ModInitializer {
         Registry.register(Registry.ITEM, new Identifier("emeraldtier", "emerald_boots"), EMERALD_BOOTS);
         Registry.register(Registry.ITEM, new Identifier("emeraldtier", "emerald_horse_armor"), EMERALD_HORSE_ARMOR);
     }
-
+    public static class LootTableItem {
+        public Identifier id;
+        public int weight;
+        public LootTableItem(Identifier id, int weight) {
+            this.id = id;
+            this.weight = weight;
+        }
+    }
 }
+
