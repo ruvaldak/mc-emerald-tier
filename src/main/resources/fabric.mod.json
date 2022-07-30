@@ -8,10 +8,10 @@
     "github.com/chadsten"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
+    "homepage": "https://github.com/chadsten/mc-emerald-tier",
     "sources": "https://github.com/chadsten/mc-emerald-tier"
   },
-  "license": "CC0-1.0",
+  "license": "GPL-3.0",
   "icon": "assets/emeraldtier/icon.png",
   "environment": "*",
   "entrypoints": {
