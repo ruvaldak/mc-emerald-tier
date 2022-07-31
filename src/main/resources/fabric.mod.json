@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "id": "emerald-tier",
+  "id": "emeraldtier",
   "version": "${version}",
   "name": "Emerald Tier",
   "description": "Adds an emerald tier of tools, weapons, and armor (including horse armor) to the game, balanced to be a bit less strong than diamond, but with a higher enchantability.",
@@ -20,7 +20,6 @@
     ]
   },
   "mixins": [
-    "emeraldtier.mixins.json"
   ],
   "depends": {
     "fabricloader": ">=0.14.8",
