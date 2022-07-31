@@ -16,4 +16,4 @@ Install the mod using your preferred method of management.
 
 ## License
 
-This mod is licensed under GPL 3.0.
+This mod is licensed under LGPL 3.0.
