@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "id": "modid",
+  "id": "emerald-tier",
   "version": "${version}",
   "name": "Emerald Tier",
   "description": "Adds an emerald tier of tools, weapons, and armor (including horse armor) to the game, balanced to be a bit less strong than diamond, but with a higher enchantability.",
