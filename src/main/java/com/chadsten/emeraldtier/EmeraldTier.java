@@ -36,7 +36,6 @@ public class EmeraldTier implements ModInitializer {
 
     public static final LootTableItem[] LOOT_TABLE = {
             new LootTableItem(LootTables.SIMPLE_DUNGEON_CHEST, 2),
-            new LootTableItem(LootTables.ANCIENT_CITY_CHEST, 1),
             new LootTableItem(LootTables.DESERT_PYRAMID_CHEST, 3),
             new LootTableItem(LootTables.END_CITY_TREASURE_CHEST, 1),
             new LootTableItem(LootTables.JUNGLE_TEMPLE_CHEST, 1),
