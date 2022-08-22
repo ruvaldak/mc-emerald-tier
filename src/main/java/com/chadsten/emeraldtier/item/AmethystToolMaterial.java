@@ -4,36 +4,36 @@ import net.minecraft.item.Items;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.recipe.Ingredient;
 
-public class EmeraldToolMaterial implements ToolMaterial {
-    public static final EmeraldToolMaterial INSTANCE = new EmeraldToolMaterial();
+public class AmethystToolMaterial implements ToolMaterial {
+    public static final AmethystToolMaterial INSTANCE = new AmethystToolMaterial();
 
     @Override
     public int getDurability() {
-        return 2031; //same durability as netherrite
+        return 250; //same durability as iron
     }
 
     @Override
     public float getMiningSpeedMultiplier() {
-        return 6F; //same mining speed as iron
+        return 12F; //same mining speed as gold
     }
 
     @Override
     public float getAttackDamage() {
-        return 2F; //same damage as iron
+        return 1F; //same damage as stone
     }
 
     @Override
     public int getMiningLevel() {
-        return 2; //same harvest tier as iron
+        return 1; //same harvest tier as stone
     }
 
     @Override
     public int getEnchantability() {
-        return 14; //same enchantability as iron
+        return 22; //same enchantability as iron
     }
 
     @Override
     public Ingredient getRepairIngredient() {
-        return Ingredient.ofItems(Items.EMERALD);
+        return Ingredient.ofItems(Items.AMETHYST_SHARD);
     }
 }

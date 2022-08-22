@@ -34,6 +34,20 @@ public class EmeraldTier implements ModInitializer {
 
     public static final HorseArmorItem EMERALD_HORSE_ARMOR = new HorseArmorItem(13, "emerald", new FabricItemSettings().maxCount(1).group(ItemGroup.MISC));
 
+    public static final SwordItem AMETHYST_SWORD = new SwordItem(AmethystToolMaterial.INSTANCE, 3, -2.4F, new FabricItemSettings().group(ItemGroup.COMBAT));
+    public static final ShovelItem AMETHYST_SHOVEL = new ShovelItem(AmethystToolMaterial.INSTANCE, 1.5F, -3.0F, new FabricItemSettings().group(ItemGroup.TOOLS));
+    public static final EmeraldPickaxeItem AMETHYST_PICKAXE = new EmeraldPickaxeItem(AmethystToolMaterial.INSTANCE, 1, -2.8F, new FabricItemSettings().group(ItemGroup.TOOLS));
+    public static final EmeraldAxeItem AMETHYST_AXE = new EmeraldAxeItem(AmethystToolMaterial.INSTANCE, 6.5F, -3.2F, new FabricItemSettings().group(ItemGroup.TOOLS));
+    public static final EmeraldHoeItem AMETHYST_HOE = new EmeraldHoeItem(AmethystToolMaterial.INSTANCE, -1, -1.5F, new FabricItemSettings().group(ItemGroup.TOOLS));
+
+    public static final ArmorItem AMETHYST_HELMET = new ArmorItem(AmethystArmorMaterial.INSTANCE, EquipmentSlot.HEAD, new FabricItemSettings().group(ItemGroup.COMBAT));
+    public static final ArmorItem AMETHYST_CHESTPLATE = new ArmorItem(AmethystArmorMaterial.INSTANCE, EquipmentSlot.CHEST, new FabricItemSettings().group(ItemGroup.COMBAT));
+    public static final ArmorItem AMETHYST_LEGGINGS = new ArmorItem(AmethystArmorMaterial.INSTANCE, EquipmentSlot.LEGS, new FabricItemSettings().group(ItemGroup.COMBAT));
+    public static final ArmorItem AMETHYST_BOOTS = new ArmorItem(AmethystArmorMaterial.INSTANCE, EquipmentSlot.FEET, new FabricItemSettings().group(ItemGroup.COMBAT));
+
+    public static final HorseArmorItem AMETHYST_HORSE_ARMOR = new HorseArmorItem(13, "amethyst", new FabricItemSettings().maxCount(1).group(ItemGroup.MISC));
+
+
     public static final LootTableItem[] LOOT_TABLE = {
             new LootTableItem(LootTables.SIMPLE_DUNGEON_CHEST, 2),
             new LootTableItem(LootTables.DESERT_PYRAMID_CHEST, 3),
@@ -89,6 +103,17 @@ public class EmeraldTier implements ModInitializer {
         Registry.register(Registry.ITEM, new Identifier("emeraldtier", "emerald_leggings"), EMERALD_LEGGINGS);
         Registry.register(Registry.ITEM, new Identifier("emeraldtier", "emerald_boots"), EMERALD_BOOTS);
         Registry.register(Registry.ITEM, new Identifier("emeraldtier", "emerald_horse_armor"), EMERALD_HORSE_ARMOR);
+
+        Registry.register(Registry.ITEM, new Identifier("emeraldtier", "amethyst_sword"), AMETHYST_SWORD);
+        Registry.register(Registry.ITEM, new Identifier("emeraldtier", "amethyst_shovel"), AMETHYST_SHOVEL);
+        Registry.register(Registry.ITEM, new Identifier("emeraldtier", "amethyst_pickaxe"), AMETHYST_PICKAXE);
+        Registry.register(Registry.ITEM, new Identifier("emeraldtier", "amethyst_axe"), AMETHYST_AXE);
+        Registry.register(Registry.ITEM, new Identifier("emeraldtier", "amethyst_hoe"), AMETHYST_HOE);
+        Registry.register(Registry.ITEM, new Identifier("emeraldtier", "amethyst_helmet"), AMETHYST_HELMET);
+        Registry.register(Registry.ITEM, new Identifier("emeraldtier", "amethyst_chestplate"), AMETHYST_CHESTPLATE);
+        Registry.register(Registry.ITEM, new Identifier("emeraldtier", "amethyst_leggings"), AMETHYST_LEGGINGS);
+        Registry.register(Registry.ITEM, new Identifier("emeraldtier", "amethyst_boots"), AMETHYST_BOOTS);
+        Registry.register(Registry.ITEM, new Identifier("emeraldtier", "amethyst_horse_armor"), AMETHYST_HORSE_ARMOR);
     }
     public static class LootTableItem {
         public Identifier id;

@@ -7,11 +7,11 @@ import net.minecraft.recipe.Ingredient;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 
-public class EmeraldArmorMaterial implements ArmorMaterial {
-    public static final EmeraldArmorMaterial INSTANCE = new EmeraldArmorMaterial();
+public class AmethystArmorMaterial implements ArmorMaterial {
+    public static final AmethystArmorMaterial INSTANCE = new AmethystArmorMaterial();
 
-    private static final int durabilityMultiplier = 37;
-    private static final int[] protectionAmounts = new int[]{2, 5, 6, 2};
+    private static final int durabilityMultiplier = 15;
+    private static final int[] protectionAmounts = new int[]{1, 3, 5, 2};
 
     // Minecraft base durability values.
     private static final int[] BASE_DURABILITY = new int[]{13, 15, 16, 11};
@@ -28,7 +28,7 @@ public class EmeraldArmorMaterial implements ArmorMaterial {
 
     @Override
     public int getEnchantability() {
-        return 9;
+        return 25;
     }
 
     @Override
@@ -38,12 +38,12 @@ public class EmeraldArmorMaterial implements ArmorMaterial {
 
     @Override
     public Ingredient getRepairIngredient() {
-        return Ingredient.ofItems(Items.EMERALD);
+        return Ingredient.ofItems(Items.AMETHYST_SHARD);
     }
 
     @Override
     public String getName() {
-        return "emerald";
+        return "amethyst";
     }
 
     @Override
