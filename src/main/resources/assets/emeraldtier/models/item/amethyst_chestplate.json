@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "emeraldtier:item/emerald_chestplate"
+    "layer0": "emeraldtier:item/amethyst_chestplate"
   }
 }
