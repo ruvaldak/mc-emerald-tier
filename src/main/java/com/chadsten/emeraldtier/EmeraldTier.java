@@ -42,9 +42,6 @@ public class EmeraldTier implements ModInitializer {
     public static final ArmorItem EMERALD_BOOTS = new ArmorItem(EmeraldArmorMaterial.INSTANCE, EquipmentSlot.FEET,
             new FabricItemSettings().group(ItemGroup.COMBAT));
 
-    public static final HorseArmorItem EMERALD_HORSE_ARMOR = new HorseArmorItem(13, "emerald",
-            new FabricItemSettings().maxCount(1).group(ItemGroup.MISC));
-
     // Amethyst
     public static final SwordItem AMETHYST_SWORD = new SwordItem(AmethystToolMaterial.INSTANCE, 3, -2.4F,
             new FabricItemSettings().group(ItemGroup.COMBAT));
@@ -65,9 +62,6 @@ public class EmeraldTier implements ModInitializer {
             new FabricItemSettings().group(ItemGroup.COMBAT));
     public static final ArmorItem AMETHYST_BOOTS = new ArmorItem(AmethystArmorMaterial.INSTANCE, EquipmentSlot.FEET,
             new FabricItemSettings().group(ItemGroup.COMBAT));
-
-    public static final HorseArmorItem AMETHYST_HORSE_ARMOR = new HorseArmorItem(13, "amethyst",
-            new FabricItemSettings().maxCount(1).group(ItemGroup.MISC));
 
     // Copper
     public static final SwordItem COPPER_SWORD = new SwordItem(CopperToolMaterial.INSTANCE, 3, -2.4F,
@@ -90,9 +84,6 @@ public class EmeraldTier implements ModInitializer {
     public static final ArmorItem COPPER_BOOTS = new ArmorItem(CopperArmorMaterial.INSTANCE, EquipmentSlot.FEET,
             new FabricItemSettings().group(ItemGroup.COMBAT));
 
-    public static final HorseArmorItem COPPER_HORSE_ARMOR = new HorseArmorItem(13, "copper",
-            new FabricItemSettings().maxCount(1).group(ItemGroup.MISC));
-
     public static final LootTableItem[] LOOT_TABLE = {
             new LootTableItem(LootTables.SIMPLE_DUNGEON_CHEST, 2),
             new LootTableItem(LootTables.DESERT_PYRAMID_CHEST, 3),
@@ -103,21 +94,6 @@ public class EmeraldTier implements ModInitializer {
             // village weaponsmith's chests are excluded to provide balance via increased
             // rarity
     };
-
-    public static void buildLootTables() {
-        for (LootTableItem LOOT_ENTRY : LOOT_TABLE) {
-
-            LootTableEvents.MODIFY.register((resourceManager, lootManager, id, tableBuilder, source) -> {
-                if (source.isBuiltin() && LOOT_ENTRY.id.equals(id)) {
-
-                    LootPool.Builder poolBuilder = LootPool.builder()
-                            .with(ItemEntry.builder(EmeraldTier.EMERALD_HORSE_ARMOR).weight(LOOT_ENTRY.weight));
-
-                    tableBuilder.pool(poolBuilder);
-                }
-            });
-        }
-    }
 
     @Override
     public void onInitialize() {
@@ -130,10 +106,6 @@ public class EmeraldTier implements ModInitializer {
         LOGGER.info("[Emerald Tier] Item registration starting.");
         registerItems();
         LOGGER.info("[Emerald Tier] Item registration complete.");
-
-        LOGGER.info("[Emerald Tier] Loot table modification starting.");
-        buildLootTables();
-        LOGGER.info("[Emerald Tier] Loot table modification complete.");
 
         LOGGER.info("[Emerald Tier] Initialization completed.");
     }
@@ -148,7 +120,6 @@ public class EmeraldTier implements ModInitializer {
         Registry.register(Registry.ITEM, new Identifier("emeraldtier", "emerald_chestplate"), EMERALD_CHESTPLATE);
         Registry.register(Registry.ITEM, new Identifier("emeraldtier", "emerald_leggings"), EMERALD_LEGGINGS);
         Registry.register(Registry.ITEM, new Identifier("emeraldtier", "emerald_boots"), EMERALD_BOOTS);
-        Registry.register(Registry.ITEM, new Identifier("emeraldtier", "emerald_horse_armor"), EMERALD_HORSE_ARMOR);
 
         Registry.register(Registry.ITEM, new Identifier("emeraldtier", "amethyst_sword"), AMETHYST_SWORD);
         Registry.register(Registry.ITEM, new Identifier("emeraldtier", "amethyst_shovel"), AMETHYST_SHOVEL);
@@ -159,7 +130,6 @@ public class EmeraldTier implements ModInitializer {
         Registry.register(Registry.ITEM, new Identifier("emeraldtier", "amethyst_chestplate"), AMETHYST_CHESTPLATE);
         Registry.register(Registry.ITEM, new Identifier("emeraldtier", "amethyst_leggings"), AMETHYST_LEGGINGS);
         Registry.register(Registry.ITEM, new Identifier("emeraldtier", "amethyst_boots"), AMETHYST_BOOTS);
-        Registry.register(Registry.ITEM, new Identifier("emeraldtier", "amethyst_horse_armor"), AMETHYST_HORSE_ARMOR);
 
         Registry.register(Registry.ITEM, new Identifier("emeraldtier", "copper_sword"), COPPER_SWORD);
         Registry.register(Registry.ITEM, new Identifier("emeraldtier", "copper_shovel"), COPPER_SHOVEL);
@@ -170,7 +140,6 @@ public class EmeraldTier implements ModInitializer {
         Registry.register(Registry.ITEM, new Identifier("emeraldtier", "copper_chestplate"), COPPER_CHESTPLATE);
         Registry.register(Registry.ITEM, new Identifier("emeraldtier", "copper_leggings"), COPPER_LEGGINGS);
         Registry.register(Registry.ITEM, new Identifier("emeraldtier", "copper_boots"), COPPER_BOOTS);
-        Registry.register(Registry.ITEM, new Identifier("emeraldtier", "copper_horse_armor"), COPPER_HORSE_ARMOR);
     }
 
     public static class LootTableItem {
