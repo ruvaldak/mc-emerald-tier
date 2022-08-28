@@ -1,4 +1,4 @@
-# Emerald Tier
+# Renewable Tools
 
 ## Overview
 This is Renewable Tools. May not be of interest to anyone when outside of the modpack it's designed for, but:
