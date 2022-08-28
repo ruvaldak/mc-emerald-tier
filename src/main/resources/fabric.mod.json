@@ -1,22 +1,22 @@
 {
   "schemaVersion": 1,
-  "id": "emeraldtier",
+  "id": "renewabletools",
   "version": "${version}",
-  "name": "Emerald Tier",
-  "description": "Adds an emerald tier of tools, weapons, and armor (including horse armor) to the game, balanced to be a bit less strong than diamond, but with a higher enchantability.",
+  "name": "Renewable Tools",
+  "description": "Adds copper, amethyst, and emerald tools & armor balanced around their renewability. Designed for the NostalgicPack Modpack and it's balance, so may be over powered in Vanilla.",
   "authors": [
-    "github.com/chadsten"
+    "github.com/ruvaldak"
   ],
   "contact": {
-    "homepage": "https://github.com/chadsten/mc-emerald-tier",
-    "sources": "https://github.com/chadsten/mc-emerald-tier"
+    "homepage": "https://github.com/ruvaldak/renewable-tools",
+    "sources": "https://github.com/ruvaldak/renewable-tools"
   },
   "license": "LGPL-3.0",
-  "icon": "assets/emeraldtier/icon.png",
+  "icon": "assets/renewabletools/icon.png",
   "environment": "*",
   "entrypoints": {
     "main": [
-      "com.chadsten.emeraldtier.EmeraldTier"
+      "com.ruvaldak.renewabletools.RenewableTools"
     ]
   },
   "mixins": [
