@@ -11,4 +11,4 @@ This mod is designed in the style of Minecraft pre-1.8 beta - and not just that,
 
 ## Credits
 Credit to Spoonio and others in the NostalgiaTweaks Discord server for helping me with tuning emerald and amethyst textures, and to Kradek for making the copper textures.
-This mod is a fork of (Emerald Tier)[https://github.com/chadsten/mc-emerald-tier], so of course credit to Chadsten
+This mod is a fork of [Emerald Tier](https://github.com/chadsten/mc-emerald-tier), so of course credit to Chadsten
