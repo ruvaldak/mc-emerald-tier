@@ -1,14 +1,56 @@
 # Renewable Tools
 
 ## Overview
-This is Renewable Tools. May not be of interest to anyone when outside of the modpack it's designed for, but:
-Adds Copper, Emerald, and Amethyst tools & armor.
-Emerald tools are identical to iron, but have the durability of netherite (in my upcoming modpack, villages don't spawn, so the only way to get emerald would be to mine it, or cure zombie villagers and trade for it)
-Amethyst tools have the mining tier and enchantability of stone, the durability of iron, and the efficiency of gold. (The idea is that amethyst tools, being highly renewable, would be good for large amounts of menial work i.e. teraforming, clearing a bunch of dirt/stone, hoeing a ton of dirt, etc. Built for doing a lot of basic things quickly, keeping in mind the infinite nature of amethyst)
-Copper tools serve as a stepping stone between stone and iron, with the durability and enchantability of stone, but the mining tier and efficiency of iron. (a lot more copper than iron, especially on the surface touching air, so you're more likely to find enough copper for tools/armor than you are iron early on. Balanced around copper ore only dropping 1 ore per block.)
+Adds tools, weapons, and armor for the renewable minerals of Minecraft; Emerald, Amethyst, and Copper. They're balanced to fill some small gaps between each tier of vanilla Minecraft, while being unique enough to stand out.
 
-This mod is designed in the style of Minecraft pre-1.8 beta - and not just that, but is also designed for an upcoming modpack of mine. Please keep this in mind when using this mod.
+This mod is designed and balanced in the style of Minecraft pre-1.8 beta. Please keep this in mind when using this mod. Textures are not in line with the modern Minecraft textures. 
 
+This mod is intended for use with my upcoming nostalgia themed modpack.
+
+---
+## Emerald
+---
+In my upcoming modpack, villages don't spawn, so the only ways to get emerald are mining it or curing zombie villagers and trading for it. The stats reflect this rarity & eventual renewability.
+| Stat           | Value      |
+|----------------|------------|
+| Harvest tier   | Iron       |
+| Speed          | Iron       |
+| Enchantability | Iron       |
+| Damage         | Iron       |
+| Durability     | Netherrite |
+| Defense        | Iron       |
+| Toughness      | 1          |
+
+---
+## Amethyst
+---
+Because amethyst is highly renewable yet somewhat uncommon, the tools have been balanced around mid game disposability & efficiency, making them an upgrade over stone and leather. 
+| Stat           | Value |
+| -------------- | ----- |
+| Harvest tier   | Stone |
+| Speed          | Gold  |
+| Enchantability | Gold  |
+| Damage         | Stone |
+| Durability     | Iron  |
+| Defense        | Just below Iron  |
+| Toughness      | 0     |
+
+---
+## Copper
+---
+Because copper is much more common than iron, especially on the surface, you're more likely to find enough copper for tools/armor than you are iron early on. As such, copper is a mix of stone and iron, serving as a good early game disposable set.
+| Stat           | Value     |
+| -------------- | --------- |
+| Harvest tier   | Iron      |
+| Speed          | Iron      |
+| Enchantability | Stone     |
+| Damage         | Stone     |
+| Durability     | Stone     |
+| Defense        | Chainmail |
+| Toughness      | 0         |
+
+---
 ## Credits
+---
 Credit to [Spoon](https://www.planetminecraft.com/member/spoonio/) and others in the [NostalgiaTweaks](https://github.com/Adrenix/Nostalgic-Tweaks) Discord server for helping me with tuning emerald and amethyst textures, and to [Kradek](https://github.com/Kradek200) for making the copper textures.
 This mod is a fork of [Emerald Tier](https://github.com/chadsten/mc-emerald-tier), so of course credit to Chadsten
