@@ -22,24 +22,27 @@ public class RenewableTools implements ModInitializer {
                 return Registry.register(Registries.ITEM, new Identifier(NAMESPACE, itemId), item);
         }
 
-        //Swords
+        //Sword
         public static final SwordItem EMERALD_SWORD = registerItem("emerald_sword", new SwordItem(EmeraldToolMaterial.INSTANCE, 3, -2.4F, new FabricItemSettings()));
-        public static final SwordItem AMETHYST_SWORD = (SwordItem)registerItem("amethyst_sword", new SwordItem(AmethystToolMaterial.INSTANCE, 3, -2.4F, new FabricItemSettings()));
-        public static final SwordItem COPPER_SWORD = (SwordItem)registerItem("copper_sword", new SwordItem(CopperToolMaterial.INSTANCE, 3, -2.4F, new FabricItemSettings()));
+        public static final SwordItem AMETHYST_SWORD = registerItem("amethyst_sword", new SwordItem(AmethystToolMaterial.INSTANCE, 3, -2.4F, new FabricItemSettings()));
+        public static final SwordItem COPPER_SWORD = registerItem("copper_sword", new SwordItem(CopperToolMaterial.INSTANCE, 3, -2.4F, new FabricItemSettings()));
 
-        //Shovels
-        public static final ShovelItem EMERALD_SHOVEL = (ShovelItem)registerItem("emerald_shovel", new ShovelItem(EmeraldToolMaterial.INSTANCE, 1.5F, -3.0F, new FabricItemSettings()));
-        public static final ShovelItem AMETHYST_SHOVEL = (ShovelItem)registerItem("amethyst_shovel", new ShovelItem(AmethystToolMaterial.INSTANCE, 1.5F, -3.0F, new FabricItemSettings()));
-        public static final ShovelItem COPPER_SHOVEL = (ShovelItem)registerItem("copper_shovel", new ShovelItem(CopperToolMaterial.INSTANCE, 1.5F, -3.0F, new FabricItemSettings()));
+        //Shovel
+        public static final ShovelItem EMERALD_SHOVEL = registerItem("emerald_shovel", new ShovelItem(EmeraldToolMaterial.INSTANCE, 1.5F, -3.0F, new FabricItemSettings()));
+        public static final ShovelItem AMETHYST_SHOVEL = registerItem("amethyst_shovel", new ShovelItem(AmethystToolMaterial.INSTANCE, 1.5F, -3.0F, new FabricItemSettings()));
+        public static final ShovelItem COPPER_SHOVEL = registerItem("copper_shovel", new ShovelItem(CopperToolMaterial.INSTANCE, 1.5F, -3.0F, new FabricItemSettings()));
 
-
+        //Pickaxe
+        public static final PickaxeItem EMERALD_PICKAXE = registerItem("emerald_pickaxe", new PickaxeItem(EmeraldToolMaterial.INSTANCE, 1, -2.8F, new FabricItemSettings()));
+        public static final PickaxeItem AMETHYST_PICKAXE = new PickaxeItem(AmethystToolMaterial.INSTANCE, 1, -2.8F, new FabricItemSettings());
+        public static final PickaxeItem COPPER_PICKAXE = new PickaxeItem(CopperToolMaterial.INSTANCE, 1, -2.8F, new FabricItemSettings());
 
         public static final Logger LOGGER = LoggerFactory.getLogger("renewabletools");
 
         // Emerald
-        public static final EmeraldPickaxeItem EMERALD_PICKAXE = new EmeraldPickaxeItem(EmeraldToolMaterial.INSTANCE, 1, -2.8F, new FabricItemSettings());
-        public static final EmeraldAxeItem EMERALD_AXE = new EmeraldAxeItem(EmeraldToolMaterial.INSTANCE, 6F, -3.1F, new FabricItemSettings());
-        public static final EmeraldHoeItem EMERALD_HOE = new EmeraldHoeItem(EmeraldToolMaterial.INSTANCE, -2, -1F, new FabricItemSettings());
+        
+        public static final AxeItem EMERALD_AXE = new AxeItem(EmeraldToolMaterial.INSTANCE, 6F, -3.1F, new FabricItemSettings());
+        public static final HoeItem EMERALD_HOE = new HoeItem(EmeraldToolMaterial.INSTANCE, -2, -1F, new FabricItemSettings());
 
         public static final ArmorItem EMERALD_HELMET = new ArmorItem(EmeraldArmorMaterial.INSTANCE, ArmorItem.Type.HELMET, new FabricItemSettings());
         public static final ArmorItem EMERALD_CHESTPLATE = new ArmorItem(EmeraldArmorMaterial.INSTANCE, ArmorItem.Type.CHESTPLATE, new FabricItemSettings());
@@ -49,9 +52,9 @@ public class RenewableTools implements ModInitializer {
         // Amethyst
         
         
-        public static final AmethystPickaxeItem AMETHYST_PICKAXE = new AmethystPickaxeItem(AmethystToolMaterial.INSTANCE, 1, -2.8F, new FabricItemSettings());
-        public static final AmethystAxeItem AMETHYST_AXE = new AmethystAxeItem(AmethystToolMaterial.INSTANCE, 7F, -3.2F, new FabricItemSettings());
-        public static final AmethystHoeItem AMETHYST_HOE = new AmethystHoeItem(AmethystToolMaterial.INSTANCE, -1, -2F, new FabricItemSettings());
+        
+        public static final AxeItem AMETHYST_AXE = new AxeItem(AmethystToolMaterial.INSTANCE, 7F, -3.2F, new FabricItemSettings());
+        public static final HoeItem AMETHYST_HOE = new HoeItem(AmethystToolMaterial.INSTANCE, -1, -2F, new FabricItemSettings());
 
         public static final ArmorItem AMETHYST_HELMET = new ArmorItem(AmethystArmorMaterial.INSTANCE, ArmorItem.Type.HELMET, new FabricItemSettings());
         public static final ArmorItem AMETHYST_CHESTPLATE = new ArmorItem(AmethystArmorMaterial.INSTANCE, ArmorItem.Type.CHESTPLATE, new FabricItemSettings());
@@ -61,9 +64,9 @@ public class RenewableTools implements ModInitializer {
         // Copper
         
         
-        public static final CopperPickaxeItem COPPER_PICKAXE = new CopperPickaxeItem(CopperToolMaterial.INSTANCE, 1, -2.8F, new FabricItemSettings());
-        public static final CopperAxeItem COPPER_AXE = new CopperAxeItem(CopperToolMaterial.INSTANCE, 6F, -3.1F, new FabricItemSettings());
-        public static final CopperHoeItem COPPER_HOE = new CopperHoeItem(CopperToolMaterial.INSTANCE, -2, -1F, new FabricItemSettings());
+        
+        public static final AxeItem COPPER_AXE = new AxeItem(CopperToolMaterial.INSTANCE, 6F, -3.1F, new FabricItemSettings());
+        public static final HoeItem COPPER_HOE = new HoeItem(CopperToolMaterial.INSTANCE, -2, -1F, new FabricItemSettings());
 
         public static final ArmorItem COPPER_HELMET = new ArmorItem(CopperArmorMaterial.INSTANCE, ArmorItem.Type.HELMET, new FabricItemSettings());
         public static final ArmorItem COPPER_CHESTPLATE = new ArmorItem(CopperArmorMaterial.INSTANCE, ArmorItem.Type.CHESTPLATE, new FabricItemSettings());
