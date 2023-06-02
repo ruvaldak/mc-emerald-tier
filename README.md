@@ -1,4 +1,9 @@
-# Renewable Tools
+<img width="200" src="https://raw.githubusercontent.com/ruvaldak/renewable-tools/1.19.4/src/main/resources/assets/renewabletools/icon.png" alt="icon" align="right">
+<div align="left">
+<h1>Renewable Tools</h1>
+
+<h3>A Fabric mod that adds new tools, weapons, and armor using various preexisting and renewable or common minerals within vanilla Minecraft.</h3>
+</div>
 
 ## Overview
 Adds tools, weapons, and armor for the renewable minerals of Minecraft; Emerald, Amethyst, and Copper. They're balanced to fill some small gaps between each tier of vanilla Minecraft, while being unique enough to stand out.
