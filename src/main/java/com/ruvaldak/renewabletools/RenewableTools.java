@@ -2,90 +2,73 @@ package com.ruvaldak.renewabletools;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-import net.minecraft.entity.EquipmentSlot;
+import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.*;
 import net.minecraft.loot.LootTables;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
+import net.minecraft.registry.Registry;
+import net.minecraft.registry.Registries;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.ruvaldak.renewabletools.item.*;
-
 public class RenewableTools implements ModInitializer {
         // This logger is used to write text to the console and the log file.
         // It is considered best practice to use your mod id as the logger's name.
         // That way, it's clear which mod wrote info, warnings, and errors.
+        public static final String NAMESPACE = "renewabletools";
+
+        private static <ITEM_TYPE extends Item> ITEM_TYPE registerItem(String itemId, ITEM_TYPE item) {
+                return Registry.register(Registries.ITEM, new Identifier(NAMESPACE, itemId), item);
+        }
+
+        //Swords
+        public static final SwordItem EMERALD_SWORD = registerItem("emerald_sword", new SwordItem(EmeraldToolMaterial.INSTANCE, 3, -2.4F, new FabricItemSettings()));
+        public static final SwordItem AMETHYST_SWORD = (SwordItem)registerItem("amethyst_sword", new SwordItem(AmethystToolMaterial.INSTANCE, 3, -2.4F, new FabricItemSettings()));
+        public static final SwordItem COPPER_SWORD = (SwordItem)registerItem("copper_sword", new SwordItem(CopperToolMaterial.INSTANCE, 3, -2.4F, new FabricItemSettings()));
+
+        //Shovels
+        public static final ShovelItem EMERALD_SHOVEL = (ShovelItem)registerItem("emerald_shovel", new ShovelItem(EmeraldToolMaterial.INSTANCE, 1.5F, -3.0F, new FabricItemSettings()));
+        public static final ShovelItem AMETHYST_SHOVEL = (ShovelItem)registerItem("amethyst_shovel", new ShovelItem(AmethystToolMaterial.INSTANCE, 1.5F, -3.0F, new FabricItemSettings()));
+        public static final ShovelItem COPPER_SHOVEL = (ShovelItem)registerItem("copper_shovel", new ShovelItem(CopperToolMaterial.INSTANCE, 1.5F, -3.0F, new FabricItemSettings()));
+
+
+
         public static final Logger LOGGER = LoggerFactory.getLogger("renewabletools");
 
         // Emerald
-        public static final SwordItem EMERALD_SWORD = new SwordItem(EmeraldToolMaterial.INSTANCE, 3, -2.4F,
-                        new FabricItemSettings().group(ItemGroup.COMBAT));
-        public static final ShovelItem EMERALD_SHOVEL = new ShovelItem(EmeraldToolMaterial.INSTANCE, 1.5F, -3.0F,
-                        new FabricItemSettings().group(ItemGroup.TOOLS));
-        public static final EmeraldPickaxeItem EMERALD_PICKAXE = new EmeraldPickaxeItem(EmeraldToolMaterial.INSTANCE, 1,
-                        -2.8F, new FabricItemSettings().group(ItemGroup.TOOLS));
-        public static final EmeraldAxeItem EMERALD_AXE = new EmeraldAxeItem(EmeraldToolMaterial.INSTANCE, 6F, -3.1F,
-                        new FabricItemSettings().group(ItemGroup.TOOLS));
-        public static final EmeraldHoeItem EMERALD_HOE = new EmeraldHoeItem(EmeraldToolMaterial.INSTANCE, -2, -1F,
-                        new FabricItemSettings().group(ItemGroup.TOOLS));
+        public static final EmeraldPickaxeItem EMERALD_PICKAXE = new EmeraldPickaxeItem(EmeraldToolMaterial.INSTANCE, 1, -2.8F, new FabricItemSettings());
+        public static final EmeraldAxeItem EMERALD_AXE = new EmeraldAxeItem(EmeraldToolMaterial.INSTANCE, 6F, -3.1F, new FabricItemSettings());
+        public static final EmeraldHoeItem EMERALD_HOE = new EmeraldHoeItem(EmeraldToolMaterial.INSTANCE, -2, -1F, new FabricItemSettings());
 
-        public static final ArmorItem EMERALD_HELMET = new ArmorItem(EmeraldArmorMaterial.INSTANCE, EquipmentSlot.HEAD,
-                        new FabricItemSettings().group(ItemGroup.COMBAT));
-        public static final ArmorItem EMERALD_CHESTPLATE = new ArmorItem(EmeraldArmorMaterial.INSTANCE,
-                        EquipmentSlot.CHEST,
-                        new FabricItemSettings().group(ItemGroup.COMBAT));
-        public static final ArmorItem EMERALD_LEGGINGS = new ArmorItem(EmeraldArmorMaterial.INSTANCE,
-                        EquipmentSlot.LEGS,
-                        new FabricItemSettings().group(ItemGroup.COMBAT));
-        public static final ArmorItem EMERALD_BOOTS = new ArmorItem(EmeraldArmorMaterial.INSTANCE, EquipmentSlot.FEET,
-                        new FabricItemSettings().group(ItemGroup.COMBAT));
+        public static final ArmorItem EMERALD_HELMET = new ArmorItem(EmeraldArmorMaterial.INSTANCE, ArmorItem.Type.HELMET, new FabricItemSettings());
+        public static final ArmorItem EMERALD_CHESTPLATE = new ArmorItem(EmeraldArmorMaterial.INSTANCE, ArmorItem.Type.CHESTPLATE, new FabricItemSettings());
+        public static final ArmorItem EMERALD_LEGGINGS = new ArmorItem(EmeraldArmorMaterial.INSTANCE, ArmorItem.Type.LEGGINGS, new FabricItemSettings());
+        public static final ArmorItem EMERALD_BOOTS = new ArmorItem(EmeraldArmorMaterial.INSTANCE, ArmorItem.Type.BOOTS, new FabricItemSettings());
 
         // Amethyst
-        public static final SwordItem AMETHYST_SWORD = new SwordItem(AmethystToolMaterial.INSTANCE, 3, -2.4F,
-                        new FabricItemSettings().group(ItemGroup.COMBAT));
-        public static final ShovelItem AMETHYST_SHOVEL = new ShovelItem(AmethystToolMaterial.INSTANCE, 1.5F, -3.0F,
-                        new FabricItemSettings().group(ItemGroup.TOOLS));
-        public static final AmethystPickaxeItem AMETHYST_PICKAXE = new AmethystPickaxeItem(
-                        AmethystToolMaterial.INSTANCE, 1,
-                        -2.8F, new FabricItemSettings().group(ItemGroup.TOOLS));
-        public static final AmethystAxeItem AMETHYST_AXE = new AmethystAxeItem(AmethystToolMaterial.INSTANCE, 7F, -3.2F,
-                        new FabricItemSettings().group(ItemGroup.TOOLS));
-        public static final AmethystHoeItem AMETHYST_HOE = new AmethystHoeItem(AmethystToolMaterial.INSTANCE, -1, -2F,
-                        new FabricItemSettings().group(ItemGroup.TOOLS));
+        
+        
+        public static final AmethystPickaxeItem AMETHYST_PICKAXE = new AmethystPickaxeItem(AmethystToolMaterial.INSTANCE, 1, -2.8F, new FabricItemSettings());
+        public static final AmethystAxeItem AMETHYST_AXE = new AmethystAxeItem(AmethystToolMaterial.INSTANCE, 7F, -3.2F, new FabricItemSettings());
+        public static final AmethystHoeItem AMETHYST_HOE = new AmethystHoeItem(AmethystToolMaterial.INSTANCE, -1, -2F, new FabricItemSettings());
 
-        public static final ArmorItem AMETHYST_HELMET = new ArmorItem(AmethystArmorMaterial.INSTANCE,
-                        EquipmentSlot.HEAD,
-                        new FabricItemSettings().group(ItemGroup.COMBAT));
-        public static final ArmorItem AMETHYST_CHESTPLATE = new ArmorItem(AmethystArmorMaterial.INSTANCE,
-                        EquipmentSlot.CHEST, new FabricItemSettings().group(ItemGroup.COMBAT));
-        public static final ArmorItem AMETHYST_LEGGINGS = new ArmorItem(AmethystArmorMaterial.INSTANCE,
-                        EquipmentSlot.LEGS,
-                        new FabricItemSettings().group(ItemGroup.COMBAT));
-        public static final ArmorItem AMETHYST_BOOTS = new ArmorItem(AmethystArmorMaterial.INSTANCE, EquipmentSlot.FEET,
-                        new FabricItemSettings().group(ItemGroup.COMBAT));
+        public static final ArmorItem AMETHYST_HELMET = new ArmorItem(AmethystArmorMaterial.INSTANCE, ArmorItem.Type.HELMET, new FabricItemSettings());
+        public static final ArmorItem AMETHYST_CHESTPLATE = new ArmorItem(AmethystArmorMaterial.INSTANCE, ArmorItem.Type.CHESTPLATE, new FabricItemSettings());
+        public static final ArmorItem AMETHYST_LEGGINGS = new ArmorItem(AmethystArmorMaterial.INSTANCE, ArmorItem.Type.LEGGINGS, new FabricItemSettings());
+        public static final ArmorItem AMETHYST_BOOTS = new ArmorItem(AmethystArmorMaterial.INSTANCE, ArmorItem.Type.BOOTS, new FabricItemSettings());
 
         // Copper
-        public static final SwordItem COPPER_SWORD = new SwordItem(CopperToolMaterial.INSTANCE, 3, -2.4F,
-                        new FabricItemSettings().group(ItemGroup.COMBAT));
-        public static final ShovelItem COPPER_SHOVEL = new ShovelItem(CopperToolMaterial.INSTANCE, 1.5F, -3.0F,
-                        new FabricItemSettings().group(ItemGroup.TOOLS));
-        public static final CopperPickaxeItem COPPER_PICKAXE = new CopperPickaxeItem(CopperToolMaterial.INSTANCE, 1,
-                        -2.8F, new FabricItemSettings().group(ItemGroup.TOOLS));
-        public static final CopperAxeItem COPPER_AXE = new CopperAxeItem(CopperToolMaterial.INSTANCE, 6F, -3.1F,
-                        new FabricItemSettings().group(ItemGroup.TOOLS));
-        public static final CopperHoeItem COPPER_HOE = new CopperHoeItem(CopperToolMaterial.INSTANCE, -2, -1F,
-                        new FabricItemSettings().group(ItemGroup.TOOLS));
+        
+        
+        public static final CopperPickaxeItem COPPER_PICKAXE = new CopperPickaxeItem(CopperToolMaterial.INSTANCE, 1, -2.8F, new FabricItemSettings());
+        public static final CopperAxeItem COPPER_AXE = new CopperAxeItem(CopperToolMaterial.INSTANCE, 6F, -3.1F, new FabricItemSettings());
+        public static final CopperHoeItem COPPER_HOE = new CopperHoeItem(CopperToolMaterial.INSTANCE, -2, -1F, new FabricItemSettings());
 
-        public static final ArmorItem COPPER_HELMET = new ArmorItem(CopperArmorMaterial.INSTANCE, EquipmentSlot.HEAD,
-                        new FabricItemSettings().group(ItemGroup.COMBAT));
-        public static final ArmorItem COPPER_CHESTPLATE = new ArmorItem(CopperArmorMaterial.INSTANCE,
-                        EquipmentSlot.CHEST,
-                        new FabricItemSettings().group(ItemGroup.COMBAT));
-        public static final ArmorItem COPPER_LEGGINGS = new ArmorItem(CopperArmorMaterial.INSTANCE, EquipmentSlot.LEGS,
-                        new FabricItemSettings().group(ItemGroup.COMBAT));
-        public static final ArmorItem COPPER_BOOTS = new ArmorItem(CopperArmorMaterial.INSTANCE, EquipmentSlot.FEET,
-                        new FabricItemSettings().group(ItemGroup.COMBAT));
+        public static final ArmorItem COPPER_HELMET = new ArmorItem(CopperArmorMaterial.INSTANCE, ArmorItem.Type.HELMET, new FabricItemSettings());
+        public static final ArmorItem COPPER_CHESTPLATE = new ArmorItem(CopperArmorMaterial.INSTANCE, ArmorItem.Type.CHESTPLATE, new FabricItemSettings());
+        public static final ArmorItem COPPER_LEGGINGS = new ArmorItem(CopperArmorMaterial.INSTANCE, ArmorItem.Type.LEGGINGS, new FabricItemSettings());
+        public static final ArmorItem COPPER_BOOTS = new ArmorItem(CopperArmorMaterial.INSTANCE, ArmorItem.Type.BOOTS, new FabricItemSettings());
 
         public static final LootTableItem[] LOOT_TABLE = {
                         new LootTableItem(LootTables.SIMPLE_DUNGEON_CHEST, 2),
@@ -113,42 +96,78 @@ public class RenewableTools implements ModInitializer {
                 LOGGER.info("[Renewable Tools] Initialization completed.");
         }
 
+        
+
         private void registerItems() {
-                Registry.register(Registry.ITEM, new Identifier("renewabletools", "emerald_sword"), EMERALD_SWORD);
-                Registry.register(Registry.ITEM, new Identifier("renewabletools", "emerald_shovel"), EMERALD_SHOVEL);
-                Registry.register(Registry.ITEM, new Identifier("renewabletools", "emerald_pickaxe"), EMERALD_PICKAXE);
-                Registry.register(Registry.ITEM, new Identifier("renewabletools", "emerald_axe"), EMERALD_AXE);
-                Registry.register(Registry.ITEM, new Identifier("renewabletools", "emerald_hoe"), EMERALD_HOE);
-                Registry.register(Registry.ITEM, new Identifier("renewabletools", "emerald_helmet"), EMERALD_HELMET);
-                Registry.register(Registry.ITEM, new Identifier("renewabletools", "emerald_chestplate"),
+                /*Object[][] itemList = {
+                        {"emerald_shovel", RenewableTools.EMERALD_SHOVEL},
+                        {"emerald_pickaxe", RenewableTools.EMERALD_PICKAXE},
+                        {"emerald_axe", RenewableTools.EMERALD_AXE},
+                        {"emerald_hoe", RenewableTools.EMERALD_HOE},
+                        {"emerald_helmet", RenewableTools.EMERALD_HELMET},
+                        {"emerald_chestplate", RenewableTools.EMERALD_CHESTPLATE},
+                        {"emerald_leggings", RenewableTools.EMERALD_LEGGINGS},
+                        {"emerald_boots", RenewableTools.EMERALD_BOOTS},
+                        {"amethyst_shovel", RenewableTools.AMETHYST_SHOVEL},
+                        {"amethyst_pickaxe", RenewableTools.AMETHYST_PICKAXE},
+                        {"amethyst_axe", RenewableTools.AMETHYST_AXE},
+                        {"amethyst_hoe", RenewableTools.AMETHYST_HOE},
+                        {"amethyst_helmet", RenewableTools.AMETHYST_HELMET},
+                        {"amethyst_chestplate", RenewableTools.AMETHYST_CHESTPLATE},
+                        {"amethyst_leggings", RenewableTools.AMETHYST_LEGGINGS},
+                        {"amethyst_boots", RenewableTools.AMETHYST_BOOTS},
+                        {"copper_shovel", RenewableTools.COPPER_SHOVEL},
+                        {"copper_pickaxe", RenewableTools.COPPER_PICKAXE},
+                        {"copper_axe", RenewableTools.COPPER_AXE},
+                        {"copper_hoe", RenewableTools.COPPER_HOE},
+                        {"copper_helmet", RenewableTools.COPPER_HELMET},
+                        {"copper_chestplate", RenewableTools.COPPER_CHESTPLATE},
+                        {"copper_leggings", RenewableTools.COPPER_LEGGINGS},
+                        {"copper_boots", RenewableTools.COPPER_BOOTS}
+                };
+
+                for(int i = 0; i < itemList.length; i++) {
+                        registerItem((String)itemList[i][0], (Item)itemList[i][1]);
+                }*/
+
+                Registry.register(Registries.ITEM, new Identifier("renewabletools", "emerald_shovel"), EMERALD_SHOVEL);
+                Registry.register(Registries.ITEM, new Identifier("renewabletools", "emerald_pickaxe"), EMERALD_PICKAXE);
+                Registry.register(Registries.ITEM, new Identifier("renewabletools", "emerald_axe"), EMERALD_AXE);
+                Registry.register(Registries.ITEM, new Identifier("renewabletools", "emerald_hoe"), EMERALD_HOE);
+                Registry.register(Registries.ITEM, new Identifier("renewabletools", "emerald_helmet"), EMERALD_HELMET);
+                Registry.register(Registries.ITEM, new Identifier("renewabletools", "emerald_chestplate"),
                                 EMERALD_CHESTPLATE);
-                Registry.register(Registry.ITEM, new Identifier("renewabletools", "emerald_leggings"),
+                Registry.register(Registries.ITEM, new Identifier("renewabletools", "emerald_leggings"),
                                 EMERALD_LEGGINGS);
-                Registry.register(Registry.ITEM, new Identifier("renewabletools", "emerald_boots"), EMERALD_BOOTS);
+                Registry.register(Registries.ITEM, new Identifier("renewabletools", "emerald_boots"), EMERALD_BOOTS);
 
-                Registry.register(Registry.ITEM, new Identifier("renewabletools", "amethyst_sword"), AMETHYST_SWORD);
-                Registry.register(Registry.ITEM, new Identifier("renewabletools", "amethyst_shovel"), AMETHYST_SHOVEL);
-                Registry.register(Registry.ITEM, new Identifier("renewabletools", "amethyst_pickaxe"),
+                Registry.register(Registries.ITEM, new Identifier("renewabletools", "amethyst_sword"), AMETHYST_SWORD);
+                Registry.register(Registries.ITEM, new Identifier("renewabletools", "amethyst_shovel"), AMETHYST_SHOVEL);
+                Registry.register(Registries.ITEM, new Identifier("renewabletools", "amethyst_pickaxe"),
                                 AMETHYST_PICKAXE);
-                Registry.register(Registry.ITEM, new Identifier("renewabletools", "amethyst_axe"), AMETHYST_AXE);
-                Registry.register(Registry.ITEM, new Identifier("renewabletools", "amethyst_hoe"), AMETHYST_HOE);
-                Registry.register(Registry.ITEM, new Identifier("renewabletools", "amethyst_helmet"), AMETHYST_HELMET);
-                Registry.register(Registry.ITEM, new Identifier("renewabletools", "amethyst_chestplate"),
+                Registry.register(Registries.ITEM, new Identifier("renewabletools", "amethyst_axe"), AMETHYST_AXE);
+                Registry.register(Registries.ITEM, new Identifier("renewabletools", "amethyst_hoe"), AMETHYST_HOE);
+                Registry.register(Registries.ITEM, new Identifier("renewabletools", "amethyst_helmet"), AMETHYST_HELMET);
+                Registry.register(Registries.ITEM, new Identifier("renewabletools", "amethyst_chestplate"),
                                 AMETHYST_CHESTPLATE);
-                Registry.register(Registry.ITEM, new Identifier("renewabletools", "amethyst_leggings"),
+                Registry.register(Registries.ITEM, new Identifier("renewabletools", "amethyst_leggings"),
                                 AMETHYST_LEGGINGS);
-                Registry.register(Registry.ITEM, new Identifier("renewabletools", "amethyst_boots"), AMETHYST_BOOTS);
+                Registry.register(Registries.ITEM, new Identifier("renewabletools", "amethyst_boots"), AMETHYST_BOOTS);
 
-                Registry.register(Registry.ITEM, new Identifier("renewabletools", "copper_sword"), COPPER_SWORD);
-                Registry.register(Registry.ITEM, new Identifier("renewabletools", "copper_shovel"), COPPER_SHOVEL);
-                Registry.register(Registry.ITEM, new Identifier("renewabletools", "copper_pickaxe"), COPPER_PICKAXE);
-                Registry.register(Registry.ITEM, new Identifier("renewabletools", "copper_axe"), COPPER_AXE);
-                Registry.register(Registry.ITEM, new Identifier("renewabletools", "copper_hoe"), COPPER_HOE);
-                Registry.register(Registry.ITEM, new Identifier("renewabletools", "copper_helmet"), COPPER_HELMET);
-                Registry.register(Registry.ITEM, new Identifier("renewabletools", "copper_chestplate"),
+                Registry.register(Registries.ITEM, new Identifier("renewabletools", "copper_sword"), COPPER_SWORD);
+                Registry.register(Registries.ITEM, new Identifier("renewabletools", "copper_shovel"), COPPER_SHOVEL);
+                Registry.register(Registries.ITEM, new Identifier("renewabletools", "copper_pickaxe"), COPPER_PICKAXE);
+                Registry.register(Registries.ITEM, new Identifier("renewabletools", "copper_axe"), COPPER_AXE);
+                Registry.register(Registries.ITEM, new Identifier("renewabletools", "copper_hoe"), COPPER_HOE);
+                Registry.register(Registries.ITEM, new Identifier("renewabletools", "copper_helmet"), COPPER_HELMET);
+                Registry.register(Registries.ITEM, new Identifier("renewabletools", "copper_chestplate"),
                                 COPPER_CHESTPLATE);
-                Registry.register(Registry.ITEM, new Identifier("renewabletools", "copper_leggings"), COPPER_LEGGINGS);
-                Registry.register(Registry.ITEM, new Identifier("renewabletools", "copper_boots"), COPPER_BOOTS);
+                Registry.register(Registries.ITEM, new Identifier("renewabletools", "copper_leggings"), COPPER_LEGGINGS);
+                Registry.register(Registries.ITEM, new Identifier("renewabletools", "copper_boots"), COPPER_BOOTS);
+
+                ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(entries -> {
+                        entries.add(EMERALD_SWORD);
+                });
         }
 
         public static class LootTableItem {

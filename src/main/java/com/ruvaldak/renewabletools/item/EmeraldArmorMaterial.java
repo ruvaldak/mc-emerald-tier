@@ -1,8 +1,8 @@
 package com.ruvaldak.renewabletools.item;
 
-import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.Items;
+import net.minecraft.item.ArmorItem;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
@@ -17,13 +17,13 @@ public class EmeraldArmorMaterial implements ArmorMaterial {
     private static final int[] BASE_DURABILITY = new int[] { 13, 15, 16, 11 };
 
     @Override
-    public int getDurability(EquipmentSlot slot) {
-        return BASE_DURABILITY[slot.getEntitySlotId()] * durabilityMultiplier;
+    public int getDurability(ArmorItem.Type slot) {
+        return BASE_DURABILITY[slot.getEquipmentSlot().getEntitySlotId()] * durabilityMultiplier;
     }
 
     @Override
-    public int getProtectionAmount(EquipmentSlot slot) {
-        return protectionAmounts[slot.getEntitySlotId()];
+    public int getProtection(ArmorItem.Type slot) {
+        return protectionAmounts[slot.getEquipmentSlot().getEntitySlotId()];
     }
 
     @Override
