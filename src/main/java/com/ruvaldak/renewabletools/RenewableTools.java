@@ -12,10 +12,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.ruvaldak.renewabletools.item.*;
+
 public class RenewableTools implements ModInitializer {
-        // This logger is used to write text to the console and the log file.
-        // It is considered best practice to use your mod id as the logger's name.
-        // That way, it's clear which mod wrote info, warnings, and errors.
         public static final String NAMESPACE = "renewabletools";
         public static final Logger LOGGER = LoggerFactory.getLogger(NAMESPACE);
 
@@ -64,7 +62,7 @@ public class RenewableTools implements ModInitializer {
         public static final ArmorItem COPPER_CHESTPLATE = registerItem("copper_chestplate", new ArmorItem(ModArmorMaterials.COPPER, ArmorItem.Type.CHESTPLATE, new FabricItemSettings()));
         public static final ArmorItem COPPER_LEGGINGS = registerItem("copper_leggings", new ArmorItem(ModArmorMaterials.COPPER, ArmorItem.Type.LEGGINGS, new FabricItemSettings()));
         public static final ArmorItem COPPER_BOOTS = registerItem("copper_boots", new ArmorItem(ModArmorMaterials.COPPER, ArmorItem.Type.BOOTS, new FabricItemSettings()));
-
+        
 
         public static final LootTableItem[] LOOT_TABLE = {
                         new LootTableItem(LootTables.SIMPLE_DUNGEON_CHEST, 2),
@@ -73,16 +71,12 @@ public class RenewableTools implements ModInitializer {
                         new LootTableItem(LootTables.JUNGLE_TEMPLE_CHEST, 1),
                         new LootTableItem(LootTables.NETHER_BRIDGE_CHEST, 2),
                         new LootTableItem(LootTables.STRONGHOLD_CORRIDOR_CHEST, 1)
-                        // village weaponsmith's chests are excluded to provide balance via increased
+                        // village weapon smiths' chests are excluded to provide balance via increased
                         // rarity
         };
 
         @Override
         public void onInitialize() {
-                // This code runs as soon as Minecraft is in a mod-load-ready state.
-                // However, some things (like resources) may still be uninitialized.
-                // Proceed with mild caution.
-
                 LOGGER.info("[Renewable Tools] Initialization started.");
 
                 LOGGER.info("[Renewable Tools] Adding items to item groups...");
@@ -92,24 +86,25 @@ public class RenewableTools implements ModInitializer {
                 LOGGER.info("[Renewable Tools] Initialization completed.");
         }
 
-        
-
         private void addItemsToGroups() {
                 ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(entries -> {
                         // Emerald
-                        entries.addAfter(Items.GOLDEN_PICKAXE, EMERALD_PICKAXE);
-                        entries.addAfter(Items.GOLDEN_SHOVEL, EMERALD_SHOVEL);
-                        entries.addAfter(Items.GOLDEN_HOE, EMERALD_HOE);
+                        entries.addAfter(Items.GOLDEN_HOE, EMERALD_SHOVEL);
+                        entries.addAfter(EMERALD_SHOVEL, EMERALD_PICKAXE);
+                        entries.addAfter(EMERALD_PICKAXE, EMERALD_AXE);
+                        entries.addAfter(EMERALD_AXE, EMERALD_HOE);
 
                         // Amethyst
-                        entries.addAfter(Items.IRON_PICKAXE, AMETHYST_PICKAXE);
-                        entries.addAfter(Items.IRON_SHOVEL, AMETHYST_SHOVEL);
-                        entries.addAfter(Items.IRON_HOE, AMETHYST_HOE);
+                        entries.addAfter(Items.IRON_HOE, AMETHYST_SHOVEL);
+                        entries.addAfter(AMETHYST_SHOVEL, AMETHYST_PICKAXE);
+                        entries.addAfter(AMETHYST_PICKAXE, AMETHYST_AXE);
+                        entries.addAfter(AMETHYST_AXE, AMETHYST_HOE);
 
                         // Copper
-                        entries.addAfter(Items.STONE_PICKAXE, COPPER_PICKAXE);
-                        entries.addAfter(Items.STONE_SHOVEL, COPPER_SHOVEL);
-                        entries.addAfter(Items.STONE_HOE, COPPER_HOE);
+                        entries.addAfter(Items.STONE_HOE, COPPER_SHOVEL);
+                        entries.addAfter(COPPER_SHOVEL, COPPER_PICKAXE);
+                        entries.addAfter(COPPER_PICKAXE, COPPER_AXE);
+                        entries.addAfter(COPPER_AXE, COPPER_HOE);
                 });
 
                 ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(entries -> {
@@ -138,7 +133,6 @@ public class RenewableTools implements ModInitializer {
                         entries.addAfter(COPPER_LEGGINGS, COPPER_BOOTS);
                 });
         }
-
         public static class LootTableItem {
                 public Identifier id;
                 public int weight;
